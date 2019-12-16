@@ -166,7 +166,7 @@ class ShotgunAuthenticator(object):
             return user.ShotgunWebUser(impl)
         return user.ShotgunUser(impl)
 
-    def create_session_user(self, login, session_token=None, password=None, host=None, http_proxy=None):
+    def create_session_user(self, login, session_token=None, password=None, host=None, http_proxy=None, session_metadata=None):
         """
         Create a :class:`ShotgunUser` given a set of human user credentials.
         Either a password or session token must be supplied. If a password is supplied,
@@ -181,7 +181,7 @@ class ShotgunAuthenticator(object):
         :returns: A :class:`ShotgunUser` instance.
         """
         # Leverage the private implementation.
-        return self._create_session_user(login, session_token, password, host, http_proxy)
+        return self._create_session_user(login, session_token, password, host, http_proxy, session_metadata)
 
     def create_script_user(self, api_script, api_key, host=None, http_proxy=None):
         """

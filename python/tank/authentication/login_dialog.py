@@ -25,7 +25,7 @@ from . import session_cache
 from ..util.shotgun import connection
 from ..util import login
 from .errors import AuthenticationError
-from .ui.qt_abstraction import QtGui, QtCore, QtNetwork, QtWebKit
+from .ui.qt_abstraction import QtGui, QtCore, QtNetwork, QtWebKit, QtWebEngineWidgets
 from .sso_saml2 import (
     SsoSaml2Toolkit,
     SsoSaml2MissingQtModuleError,
@@ -134,6 +134,7 @@ class LoginDialog(QtGui.QDialog):
             "QtGui": QtGui,
             "QtNetwork": QtNetwork,
             "QtWebKit": QtWebKit,
+            "QtWebEngineWidgets": QtWebEngineWidgets,
         }
         try:
             self._sso_saml2 = SsoSaml2Toolkit("Web Login", qt_modules=qt_modules)
